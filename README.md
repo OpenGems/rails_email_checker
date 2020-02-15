@@ -27,7 +27,17 @@ Or install it yourself as:
 
 ## Usage
 
+### Use with ActiveModel
 
+### Use without ActiveModel
+```ruby
+address = RailsEmailChecker.address('test@gmail.com') # or RailsEmailChecker::Address.new('test@gmail.com')
+address.formatted? # => true
+address.sub_addressed? # => false
+address.recorded? # => true
+address.whitelisted? # => false
+address.blacklisted? # => false
+```
 
 ## Contributing
 

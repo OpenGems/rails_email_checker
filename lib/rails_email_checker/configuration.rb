@@ -58,8 +58,8 @@ module RailsEmailChecker
     end
 
     def add_whitelist(domains)
-      @blacklist_domains.concat(domains) if domains.is_a?(Array)
-      @blacklist_domains << domains if domains.is_a?(String)
+      @whitelist_domains.concat(domains) if domains.is_a?(Array)
+      @whitelist_domains << domains if domains.is_a?(String)
     end
   end
 end
