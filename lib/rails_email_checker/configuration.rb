@@ -15,21 +15,15 @@ module RailsEmailChecker
     end
 
     def add_blacklist_domains(path: nil, domains: nil)
-      raise ListArgument, 'Path & domains are nil' if valid_argument?(path, domains)
-      @blacklist_domains.concat(load_domains(path)) unless path.nil?
-      unless domains.nil?
-        @blacklist_domains.concat(domains) if domains.is_a?(Array)
-        @blacklist_domains << domains if domains.is_a?(String)
-      end
+      raise ListArgument, 'Path or domains are nil' if valid_argument?(path, domains)
+      add_blacklist(load_domains(path)) unless path.nil?
+      add_blacklist(domains) unless domains.nil?
     end
 
     def add_whitelist_domains(path: nil, domains: nil)
-      raise ListArgument, 'Path & domains are nil' if valid_argument?(path, domains)
-      @whitelist_domains.concat(load_domains(path)) unless path.nil?
-      unless domains.nil?
-        @whitelist_domains.concat(domains) if domains.is_a?(Array)
-        @whitelist_domains << domains if domains.is_a?(String)
-      end
+      raise ListArgument, 'Path or domains are nil' if valid_argument?(path, domains)
+      add_whitelist(load_domains(path)) unless path.nil?
+      add_whitelist(domains) unless domains.nil?
     end
 
     private
@@ -56,6 +50,16 @@ module RailsEmailChecker
       domains
     rescue StandardError => e
       raise FileNotFound, "File not found: #{e}"
+    end
+
+    def add_blacklist(domains)
+      @blacklist_domains.concat(domains) if domains.is_a?(Array)
+      @blacklist_domains << domains if domains.is_a?(String)
+    end
+
+    def add_whitelist(domains)
+      @blacklist_domains.concat(domains) if domains.is_a?(Array)
+      @blacklist_domains << domains if domains.is_a?(String)
     end
   end
 end
