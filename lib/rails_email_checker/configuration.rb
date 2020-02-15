@@ -25,7 +25,7 @@ module RailsEmailChecker
 
     def add_whitelist_domains(path: nil, domains: nil)
       raise ListArgument, 'Path & domains are nil' if valid_argument?(path, domains)
-      @whitelist_domains << load_domains(path) unless path.nil?
+      @whitelist_domains.concat(load_domains(path)) unless path.nil?
       unless domains.nil?
         @whitelist_domains.concat(domains) if domains.is_a?(Array)
         @whitelist_domains << domains if domains.is_a?(String)
