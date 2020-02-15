@@ -1,7 +1,15 @@
 ---
-sudo: false
+os: linux
 language: ruby
 cache: bundler
 rvm:
+  - 2.5.5
   - 2.6.3
-before_install: gem install bundler -v 2.0.2
+  - 2.7.0
+gemfile:
+  - gemfiles/Gemfile-4-0
+  - gemfiles/Gemfile-5-0
+  - gemfiles/Gemfile-6-0
+before_install: gem install bundler -v 2.1.0
+before_script: bundle install
+script: bundle exec rspec

@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     rails_email_checker (0.1.0)
-      activemodel (~> 4.2)
+      activemodel (~> 4.0)
 
 GEM
   remote: https://rubygems.org/
