@@ -16,7 +16,7 @@ module RailsEmailChecker
 
     def add_blacklist_domains(path: nil, domains: nil)
       raise ListArgument, 'Path & domains are nil' if valid_argument?(path, domains)
-      @blacklist_domains << load_domains(path) unless path.nil?
+      @blacklist_domains.concat(load_domains(path)) unless path.nil?
       unless domains.nil?
         @blacklist_domains.concat(domains) if domains.is_a?(Array)
         @blacklist_domains << domains if domains.is_a?(String)
