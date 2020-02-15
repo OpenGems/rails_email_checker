@@ -57,6 +57,15 @@ class User < ActiveRecord::Base
 end
 ```
 
+OR
+
+Use like that
+```ruby
+class User < ActiveRecord::Base
+  validates :email, email: { no_sub_addressed: true, recorded: true, blacklisted: true }
+end
+```
+
 ### Use without ActiveModel
 ```ruby
 address = RailsEmailChecker.address('test@gmail.com') # or RailsEmailChecker::Address.new('test@gmail.com')
