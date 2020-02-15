@@ -29,6 +29,34 @@ Or install it yourself as:
 
 ### Use with ActiveModel
 
+To validate that the domain has a good format (regex):
+```ruby
+class User < ActiveRecord::Base
+  validates_email :email, formatted: true
+end
+```
+
+To validate that the domain is not blacklisted:
+```ruby
+class User < ActiveRecord::Base
+  validates_email :email, blacklisted: true
+end
+```
+
+To validate that the domain has a MX record:
+```ruby
+class User < ActiveRecord::Base
+  validates_email :email, recorded: true
+end
+```
+
+To validate that email is not sub addressed:
+```ruby
+class User < ActiveRecord::Base
+  validates_email :email, no_sub_addressed: true
+end
+```
+
 ### Use without ActiveModel
 ```ruby
 address = RailsEmailChecker.address('test@gmail.com') # or RailsEmailChecker::Address.new('test@gmail.com')
