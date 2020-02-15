@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/OpenGems/rails_email_checker.svg?branch=master)](https://travis-ci.org/OpenGems/redis_web_manager)
 [![security](https://hakiri.io/github/OpenGems/rails_email_checker/master.svg)](https://hakiri.io/github/OpenGems/redis_web_manager/master)
 ![Gem](https://img.shields.io/gem/dt/rails_email_checker)
-[![Coverage Status](https://coveralls.io/repos/github/OpenGems/rails_email_checker/badge.svg?branch=master)](https://coveralls.io/github/OpenGems/redis_web_manager?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/OpenGems/rails_email_checker/badge.svg?branch=master)](https://coveralls.io/github/OpenGems/rails_email_checker?branch=master)
 
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rails_email_checker`. To experiment with that code, run `bin/console` for an interactive prompt.
